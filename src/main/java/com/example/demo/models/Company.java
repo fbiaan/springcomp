@@ -19,6 +19,7 @@ public class Company {
 	private String company_name;
 	private String web_site;
 	private String logourl;
+	private String idcom;
 	
 	public Company() {
 		super();
@@ -55,6 +56,12 @@ public class Company {
 	}
 	public void setLogourl(String logourl) {
 		this.logourl = logourl;
+	}
+	public String getIdcom() {
+		return idcom;
+	}
+	public void setIdcom(String idcom) {
+		this.idcom = idcom;
 	}
 	
 	
