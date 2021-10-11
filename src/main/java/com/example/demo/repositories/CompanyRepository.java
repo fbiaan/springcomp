@@ -10,9 +10,11 @@ import com.example.demo.models.Company;
 
 
 
+
 @Repository
 
 public interface CompanyRepository extends CrudRepository<Company, Long> {
     //public abstract ArrayList<Company> findByPrioridad(Integer prioridad);
-
 }
+
+
