@@ -5,6 +5,8 @@ C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\examp
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\controllers\CompanyController.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\controllers\UsuarioController.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\Company.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\RankingComp.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\UsuarioModel.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\RankingCompRepository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\UsuarioRepository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\services\CompanyService.java
