@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Company;
+import com.example.demo.models.Ranking20;
 import com.example.demo.models.RankingComp;
 import com.example.demo.services.CompanyService;
 
@@ -21,6 +23,25 @@ import com.example.demo.services.CompanyService;
 @RestController
 @RequestMapping("/democompany") 
 public class CompanyController {
+	
+	public interface RestServiceExecution {
+
+		public Object execute() throws Exception;
+		
+	}
+	public Map<String, Object> executeService(RestServiceExecution e) {
+		Map<String, Object> res = new HashMap<>();
+		try {
+			Object r = e.execute();
+			res.put("", r);
+		} catch (Exception e2) {
+			
+			res.put("result", "Error");
+			res.put("error", e2.getMessage());
+		}
+		return res;
+	}
+	
 	@Autowired
     CompanyService companyService;
 	
@@ -63,17 +84,37 @@ public class CompanyController {
 		String sql = "select company_id, company_name from company";
 		return jdbcTemplate.queryForMap(sql);
 }
+
+	public List getRanking4() {
+		String sql = "select company_id, company_name, country, score, logo_file  from InsyteGlobalB2B.company \r\n"
+				+ "order by score desc LIMIT 20 ";
+		return jdbcTemplate.queryForList(sql);
+}
+	
 	
 	@GetMapping("/query")
 	public List<String> query() {
 		return getCompanias();
 		//return getRanking();
 	}
+
+	@GetMapping("/ranking44")
+	public Map<String, Object> getRankingcomp() {
+		return executeService(() -> {
+			return getRanking4();
+			
+		});
+	}
+	
 	
 	@GetMapping("/ranking")
     public ArrayList<RankingComp> obtenerRanking(){
 		return companyService.obtenerRanking();
 }
-	
+
+	@GetMapping("/ranking20")
+    public ArrayList<Ranking20> obtenerRanking20(){
+		return companyService.obtenerRanking20();
+}
 	
 }

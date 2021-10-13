@@ -1,12 +1,14 @@
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\CompanyRepository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\ServletInitializer.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\DemoApplication.java
-C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\services\UsuarioService.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\controllers\CompanyController.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\Ranking20.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\Ranking20Repository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\controllers\UsuarioController.java
-C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\Company.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\RankingComp.java
-C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\UsuarioModel.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\RankingCompRepository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\repositories\UsuarioRepository.java
 C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\services\CompanyService.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\services\UsuarioService.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\Company.java
+C:\Intel\logs\desarrollo\spring\companiesdemo\springdemo\src\main\java\com\example\demo\models\UsuarioModel.java
