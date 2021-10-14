@@ -183,6 +183,71 @@ public class CompanyController {
 		});
 	}	
 	
+	// companies overview
+
+	public List getCompOver(String idcom) {
+		String sql ="select\r\n"
+				+ "    `c`.`COMPANY_ID` AS `COMPANY_ID`,\r\n"
+				+ "    `c`.`COMPANY_NAME` AS `COMPANY_NAME`,\r\n"
+				+ "    `o`.`OUTPUT_ID` AS `OUTPUT_ID`,\r\n"
+				+ "    `o`.`OUTPUT_NAME` AS `OUTPUT_NAME`,\r\n"
+				+ "    `sc`.`VALUE` AS `VALUE`\r\n"
+				+ "from\r\n"
+				+ "    ((((`InsyteGlobalB2B`.`OUTPUT` `o`\r\n"
+				+ "join `InsyteGlobalB2B`.`SOURCE_OUTPUT` `so` on\r\n"
+				+ "    (`o`.`OUTPUT_ID` = `so`.`OUTPUT_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`SOURCE_OUTPUT_KPI` `sok` on\r\n"
+				+ "    (`sok`.`SO_ID` = `so`.`SO_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`SOK_COMPANY` `sc` on\r\n"
+				+ "    (`sc`.`SOK_ID` = `sok`.`SOK_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`company` `c` on\r\n"
+				+ "    (`c`.`COMPANY_ID` = `sc`.`COMPANY_ID`)) \r\n"
+				+ "    where `c`.COMPANY_ID = " + idcom ;
 	
+		return jdbcTemplate.queryForList(sql);
+}
+	
+	@GetMapping("/companyover")
+	public Map<String, Object> getCompOver1(@RequestParam (value="idcom") String idcom) {
+		return executeService(() -> {
+			return getCompOver(idcom);
+			
+		});
+	}	
+
+	// teck stack overview
+
+	public List getTeckOver(String idcom) {
+		String sql ="select\r\n"
+				+ "    `c`.`COMPANY_ID` AS `COMPANY_ID`,\r\n"
+				+ "    `c`.`COMPANY_NAME` AS `COMPANY_NAME`,\r\n"
+				+ "    `o`.`OUTPUT_ID` AS `OUTPUT_ID`,\r\n"
+				+ "    `o`.`OUTPUT_NAME` AS `OUTPUT_NAME`,\r\n"
+				+ "    `sc`.`VALUE` AS `VALUE`\r\n"
+				+ "from\r\n"
+				+ "    (((((`InsyteGlobalB2B`.`OUTPUT` `o`\r\n"
+				+ "join `InsyteGlobalB2B`.`SOURCE_OUTPUT` `so` on\r\n"
+				+ "    (`o`.`OUTPUT_ID` = `so`.`OUTPUT_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`SOURCE_OUTPUT_KPI` `sok` on\r\n"
+				+ "    (`sok`.`SO_ID` = `so`.`SO_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`SOK_COMPANY` `sc` on\r\n"
+				+ "    (`sc`.`SOK_ID` = `sok`.`SOK_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`company` `c` on\r\n"
+				+ "    (`c`.`COMPANY_ID` = `sc`.`COMPANY_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`OUTPUT_TYPE` `ot` on\r\n"
+				+ "    (`ot`.`OUTPUT_ID` = `o`.`OUTPUT_ID`))\r\n"
+				+ "where\r\n"
+				+ "    `ot`.`TYPE_ID` = 5  and  `c`.COMPANY_ID =" + idcom ;
+	
+		return jdbcTemplate.queryForList(sql);
+}
+	
+	@GetMapping("/teckover")
+	public Map<String, Object> getTeckOver1(@RequestParam (value="idcom") String idcom) {
+		return executeService(() -> {
+			return getTeckOver(idcom);
+			
+		});
+	}		
 	
 }
