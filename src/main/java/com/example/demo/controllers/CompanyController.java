@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Company;
@@ -33,7 +34,7 @@ public class CompanyController {
 		Map<String, Object> res = new HashMap<>();
 		try {
 			Object r = e.execute();
-			res.put("", r);
+			res.put("return", r);
 		} catch (Exception e2) {
 			
 			res.put("result", "Error");
@@ -90,7 +91,36 @@ public class CompanyController {
 				+ "order by score desc LIMIT 20 ";
 		return jdbcTemplate.queryForList(sql);
 }
+
+	public List getcompAll() {
+		String sql = "select * from InsyteGlobalB2B.company";
 	
+		return jdbcTemplate.queryForList(sql);
+}
+	
+	@GetMapping("/allcomp")
+	public Map<String, Object> getcompAll1() {
+		return executeService(() -> {
+			return getcompAll();
+			
+		});
+	}
+
+	
+	public List getOneComp(String idcom) {
+		String sql = "select * from InsyteGlobalB2B.company " +
+					"where company_id = " + idcom ;
+	
+		return jdbcTemplate.queryForList(sql);
+}
+	
+	@GetMapping("/onecompani")
+	public Map<String, Object> getOnecompani(@RequestParam (value="idcom") String idcom) {
+		return executeService(() -> {
+			return getOneComp(idcom);
+			
+		});
+	}	
 	
 	@GetMapping("/query")
 	public List<String> query() {
@@ -116,5 +146,43 @@ public class CompanyController {
     public ArrayList<Ranking20> obtenerRanking20(){
 		return companyService.obtenerRanking20();
 }
+
+	// investment
+	
+	public List getInvesOver(String idcom) {
+		String sql ="select\r\n"
+				+ "    `c`.`COMPANY_ID` AS `COMPANY_ID`,\r\n"
+				+ "    `c`.`COMPANY_NAME` AS `COMPANY_NAME`,\r\n"
+				+ "    `o`.`OUTPUT_NAME` AS `OUTPUT_NAME`,\r\n"
+				+ "    `sc`.`TEXT_VALUE` AS `TEXT_VALUE`\r\n"
+				+ "from\r\n"
+				+ "    (((`InsyteGlobalB2B`.`company` `c`\r\n"
+				+ "join `InsyteGlobalB2B`.`SO_COMPANY` `sc` on\r\n"
+				+ "    (`c`.`COMPANY_ID` = `sc`.`COMPANY_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`SOURCE_OUTPUT` `so` on\r\n"
+				+ "    (`so`.`SO_ID` = `sc`.`SO_ID`))\r\n"
+				+ "join `InsyteGlobalB2B`.`OUTPUT` `o` on\r\n"
+				+ "    (`o`.`OUTPUT_ID` = `so`.`OUTPUT_ID`))\r\n"
+				+ "where\r\n"
+				+ "    `so`.`OUTPUT_ID` in (1,\r\n"
+				+ "    2,\r\n"
+				+ "    3,\r\n"
+				+ "    4,\r\n"
+				+ "    5,\r\n"
+				+ "    6,\r\n"
+				+ "    7) and `c`.COMPANY_ID = " + idcom ;
+	
+		return jdbcTemplate.queryForList(sql);
+}
+	
+	@GetMapping("/invesover")
+	public Map<String, Object> getInvesOver1(@RequestParam (value="idcom") String idcom) {
+		return executeService(() -> {
+			return getInvesOver(idcom);
+			
+		});
+	}	
+	
+	
 	
 }

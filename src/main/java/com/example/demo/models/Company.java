@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "COMPANY")
+//@Table(name = "companies")
 public class Company {
 
 	@Id
@@ -19,29 +20,11 @@ public class Company {
 	private String latitude;
 	private String longitude;
 	private String logo_file;
-	private String web_site;
+	
 	private String about;
-	private String founded_date;
+	
 	private String founders;
 	private Long err;
-	private Long noi;
-	private Long tfa;
-	private String tfc;
-	private Long tfcd; 
-	private Long nofr;
-	private Long noa;
-	private String noe;
-	private Long noli; 
-	private Long pg;
-	private Long tr;
-	private String bwatc;
-	private String city;
-	private String state;
-	private String country;
-	private String region;
-	private String hq_location;
-	private String industry_groups;
-	private Long score;
 	
 	
 	public Company() {
@@ -108,14 +91,6 @@ public class Company {
 	}
 
 
-	public String getWeb_site() {
-		return web_site;
-	}
-
-
-	public void setWeb_site(String web_site) {
-		this.web_site = web_site;
-	}
 
 
 	public String getAbout() {
@@ -127,15 +102,6 @@ public class Company {
 		this.about = about;
 	}
 
-
-	public String getFounded_date() {
-		return founded_date;
-	}
-
-
-	public void setFounded_date(String founded_date) {
-		this.founded_date = founded_date;
-	}
 
 
 	public String getFounders() {
@@ -158,185 +124,7 @@ public class Company {
 	}
 
 
-	public Long getNoi() {
-		return noi;
-	}
 
-
-	public void setNoi(Long noi) {
-		this.noi = noi;
-	}
-
-
-	public Long getTfa() {
-		return tfa;
-	}
-
-
-	public void setTfa(Long tfa) {
-		this.tfa = tfa;
-	}
-
-
-	public String getTfc() {
-		return tfc;
-	}
-
-
-	public void setTfc(String tfc) {
-		this.tfc = tfc;
-	}
-
-
-	public Long getTfcd() {
-		return tfcd;
-	}
-
-
-	public void setTfcd(Long tfcd) {
-		this.tfcd = tfcd;
-	}
-
-
-	public Long getNofr() {
-		return nofr;
-	}
-
-
-	public void setNofr(Long nofr) {
-		this.nofr = nofr;
-	}
-
-
-	public Long getNoa() {
-		return noa;
-	}
-
-
-	public void setNoa(Long noa) {
-		this.noa = noa;
-	}
-
-
-	public String getNoe() {
-		return noe;
-	}
-
-
-	public void setNoe(String noe) {
-		this.noe = noe;
-	}
-
-
-	public Long getNoli() {
-		return noli;
-	}
-
-
-	public void setNoli(Long noli) {
-		this.noli = noli;
-	}
-
-
-	public Long getPg() {
-		return pg;
-	}
-
-
-	public void setPg(Long pg) {
-		this.pg = pg;
-	}
-
-
-	public Long getTr() {
-		return tr;
-	}
-
-
-	public void setTr(Long tr) {
-		this.tr = tr;
-	}
-
-
-	public String getBwatc() {
-		return bwatc;
-	}
-
-
-	public void setBwatc(String bwatc) {
-		this.bwatc = bwatc;
-	}
-
-
-	public String getCity() {
-		return city;
-	}
-
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-
-	public String getState() {
-		return state;
-	}
-
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-
-	public String getCountry() {
-		return country;
-	}
-
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-
-	public String getRegion() {
-		return region;
-	}
-
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-
-	public String getHq_location() {
-		return hq_location;
-	}
-
-
-	public void setHq_location(String hq_location) {
-		this.hq_location = hq_location;
-	}
-
-
-	public String getIndustry_groups() {
-		return industry_groups;
-	}
-
-
-	public void setIndustry_groups(String industry_groups) {
-		this.industry_groups = industry_groups;
-	}
-
-
-	public Long getScore() {
-		return score;
-	}
-
-
-	public void setScore(Long score) {
-		this.score = score;
-	}	
-	
 	
 	
 	
