@@ -87,8 +87,7 @@ public class CompanyController {
 }
 
 	public List getRanking4() {
-		String sql = "select company_id, company_name, country, score, logo_file  from InsyteGlobalB2B.company \r\n"
-				+ "order by score desc LIMIT 20 ";
+		String sql = "select * from InsyteGlobalB2B.company_score_view  limit 20";
 		return jdbcTemplate.queryForList(sql);
 }
 

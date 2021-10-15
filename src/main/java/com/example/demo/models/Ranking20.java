@@ -10,9 +10,8 @@ public class Ranking20 {
 	@Id 
 	private Long company_id;
 	private String company_name;
-	private String country;
 	private Long score;
-	private String logo_file;
+	
 	
 	
 	public Ranking20() {
@@ -31,23 +30,11 @@ public class Ranking20 {
 	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
 	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
 	public Long getScore() {
 		return score;
 	}
 	public void setScore(Long score) {
 		this.score = score;
-	}
-	public String getLogo_file() {
-		return logo_file;
-	}
-	public void setLogo_file(String logo_file) {
-		this.logo_file = logo_file;
 	}
 	
 	
